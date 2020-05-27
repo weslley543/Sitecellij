@@ -6,7 +6,6 @@ class Inicio extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header_panel');
-		$this->load->view('sidebar_panel');
 		$this->load->view('footer_panel');
 	}
 
