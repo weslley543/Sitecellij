@@ -52,8 +52,8 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Opções</h6>
-        <a class="collapse-item" href="<?= base_url('Inicio/pagina_2')?>">Nova Postagem</a>
-        <a class="collapse-item" href="cards.html">Visualizar Postagem</a>
+        <a class="collapse-item" href="<?= base_url('Inicio/criarpostagem')?>">Nova Postagem</a>
+        <a class="collapse-item" href="<?= base_url('Inicio/visualizarpostagem')?>">Visualizar Postagem</a>
       </div>
     </div>
   </li>

@@ -24,4 +24,48 @@ class Post extends CI_Controller {
         }
     }
 
+    public function index(){
+        $dados['title'] = $this->input->get('title');
+        $dados['page'] = $this->input->get('page');
+       
+        $datas = json_decode(json_encode($this->model_post->index($dados)), true);
+        
+        $texto ="";
+        foreach($datas as $data){
+            $id=$data['id'];
+            $titulo=$data['title'];
+            $subtitle = $data['subtitle'];
+            $datacriado = $data['created_at'];
+            $datamodificado = $data['updated_at'];
+            $texto .= "<tr id = 'id$id'>
+                        <td>$titulo</td>
+                        <td>$subtitle</td>
+                        <td>$datacriado</td>
+                        <td>$datamodificado</td>
+                        <td>
+                            <button class='btn btn-warning' onClick='atualizar($id)'><i class='fas fa-edit'></i></button>
+                            <button class='btn btn-danger' onClick='apagar($id)'><i class='fas fa-trash'></i></button>
+                        </td>  
+                      </tr>";
+            
+        
+        }
+        header('Content-Type: application/json; charset=utf-8');
+		echo json_encode($texto,JSON_UNESCAPED_UNICODE);
+    }
+
+    public function delete(){
+       $id = $this->input->post('cod');
+       if($this->model_post->delete($id)){
+        $ok['ok']=true;
+        header('Content-Type: application/json; charset=utf-8');
+		echo json_encode($ok,JSON_UNESCAPED_UNICODE);
+       }else{
+        $ok['ok']=false;
+        header('Content-Type: application/json; charset=utf-8');
+		echo json_encode($ok,JSON_UNESCAPED_UNICODE);
+       }
+        
+    }
+
 }

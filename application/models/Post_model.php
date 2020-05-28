@@ -11,4 +11,13 @@ class Post_model extends CI_Model{
        return $this->db->insert($this->table, $dados);
        
     }
+
+    public function index($dados){
+        return $this->db->get($this->table)->result();
+    }
+
+    public function delete($id){
+        $this->db->where('id', $id);
+        return $this->db->delete($this->table);
+    }
 }
