@@ -8,7 +8,7 @@ class Inicio extends CI_Controller {
     // $this->load->view('sidebar_panel');
     // $this->load->view('footer_panel');
 
-    $this->template->show('home.php');
+    // $this->template->show('home.php');
   }
 
   public function pagina_2() {
